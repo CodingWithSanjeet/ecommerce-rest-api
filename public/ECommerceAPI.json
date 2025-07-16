@@ -1,0 +1,604 @@
+{
+	"info": {
+		"_postman_id": "654b3553-809a-4337-a4ea-86c2b1088b06",
+		"name": "E-Commerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32006519"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							]
+						},
+						"description": "Get all users (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								":id"
+							]
+						},
+						"description": "Get a specific user by their ID (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Show Current User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/users/showMe",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"showMe"
+							]
+						},
+						"description": "Get the profile information of the currently authenticated user"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Doe\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/updateUser",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"updateUser"
+							]
+						},
+						"description": "Update the current user's profile information (name, email, etc.)"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"oldPassword\": \"oldpassword123\",\r\n    \"newPassword\": \"newpassword456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/users/updateUserPassword",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"updateUserPassword"
+							]
+						},
+						"description": "Change the current user's password by providing old and new passwords"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Get All Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							]
+						},
+						"description": "Retrieve all products with optional filtering, sorting, and pagination"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								":id"
+							]
+						},
+						"description": "Get detailed information about a specific product by its ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Updated Product Name\",\r\n    \"price\": 29999,\r\n    \"company\": \"mock-company\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								":id"
+							]
+						},
+						"description": "Update specific fields of an existing product (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								":id"
+							]
+						},
+						"description": "Permanently delete a product and all associated reviews (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Modern Office Chair\",\r\n    \"price\": 15999,\r\n    \"image\": \"https://example.com/images/office-chair.jpg\",\r\n    \"colors\": [\"#FF5733\", \"#333333\", \"#FFFFFF\"],\r\n    \"company\": \"mock-furniture-co\",\r\n    \"description\": \"Ergonomic office chair with lumbar support, adjustable height, and breathable mesh back. Perfect for long work sessions with maximum comfort and style.\",\r\n    \"category\": \"office\",\r\n    \"featured\": false,\r\n    \"freeShipping\": true,\r\n    \"inventory\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/products",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products"
+							]
+						},
+						"description": "Create a new product with all required details (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Image",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "productImage",
+									"type": "file",
+									"src": "/path/to/your/product-image.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/products/upload-image",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								"upload-image"
+							]
+						},
+						"description": "Upload a product image file (Admin only). Accepts JPG, PNG formats up to 5MB"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/products/:id/reviews",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"products",
+								":id",
+								"reviews"
+							]
+						},
+						"description": "Get all reviews for a specific product with user information"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Logout User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/auth/logout",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Log out the current user and clear authentication cookies"
+					},
+					"response": []
+				},
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"John Smith\",\r\n    \"email\": \"john.smith@example.com\",\r\n    \"password\": \"securePassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						},
+						"description": "Create a new user account with name, email, and password"
+					},
+					"response": []
+				},
+				{
+					"name": "Login User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"john.smith@example.com\",\r\n    \"password\": \"securePassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Authenticate user with email and password to receive access token"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "Get All Reviews",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/reviews",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"reviews"
+							]
+						},
+						"description": "Retrieve all reviews across all products with user and product information"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \":productId\",\r\n    \"rating\": 5,\r\n    \"title\": \"Outstanding Quality!\",\r\n    \"comment\": \"This product exceeded my expectations. Great build quality and excellent customer service.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/reviews",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"reviews"
+							]
+						},
+						"description": "Submit a new review for a product (authenticated users only, one review per product per user)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/reviews/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"reviews",
+								":id"
+							]
+						},
+						"description": "Get detailed information about a specific review by its ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Review",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"rating\": 4,\r\n    \"title\": \"Updated Review Title\",\r\n    \"comment\": \"After using this product for a while, I can confirm it's a solid choice with good value for money.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/reviews/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"reviews",
+								":id"
+							]
+						},
+						"description": "Update an existing review (only by the review author or admin)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/reviews/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"reviews",
+								":id"
+							]
+						},
+						"description": "Permanently delete a review (only by the review author or admin)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Get All Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/orders",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Retrieve all orders in the system (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/orders/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							]
+						},
+						"description": "Get detailed information about a specific order by ID (Admin or order owner only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Current User Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/orders/my-orders",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders",
+								"my-orders"
+							]
+						},
+						"description": "Get all orders placed by the currently authenticated user"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tax\": 599,\r\n    \"shippingFee\": 899,\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Modern Office Chair\",\r\n            \"price\": 15999,\r\n            \"image\": \"https://example.com/images/office-chair.jpg\",\r\n            \"amount\": 2,\r\n            \"product\": \":productId1\"\r\n        },\r\n        {\r\n            \"name\": \"Ergonomic Desk\",\r\n            \"price\": 45999,\r\n            \"image\": \"https://example.com/images/ergonomic-desk.jpg\",\r\n            \"amount\": 1,\r\n            \"product\": \":productId2\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/orders",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders"
+							]
+						},
+						"description": "Create a new order with cart items, tax, and shipping information"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Order",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paymentIntentId\": \"pi_mock_payment_intent_id_123456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/orders/:id",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"orders",
+								":id"
+							]
+						},
+						"description": "Update order status and payment information (typically used after payment processing)"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
