@@ -51,8 +51,8 @@ Before running this project, make sure you have the following installed:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/ecom-api.git
-cd ecom-api
+git clone https://github.com/CodingWithSanjeet/ecommerce-rest-api.git
+cd ecommerce-rest-api
 ```
 
 ### 2. Install dependencies
